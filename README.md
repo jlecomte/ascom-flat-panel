@@ -1,1 +1,1 @@
-# Flat Panel
+# ASCOM-Compatible Flat Panel
