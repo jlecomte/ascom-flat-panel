@@ -1,5 +1,17 @@
 # ASCOM-Compatible Flat Panel
 
+* [Introduction](#introduction)
+* [Finished Product](#finished-product)
+* [Pre-Requisites](#pre-requisites)
+* [Hardware](#hardware)
+* [Compiling The ASCOM Driver](#compiling-the-ascom-driver)
+* [Installing The ASCOM Driver](#installing-the-ascom-driver)
+* [Compiling The Arduino Firmware](#compiling-the-arduino-firmware)
+* [Mechanical Components](#mechanical-components)
+* [Electronic Circuit](#electronic-circuit)
+* [Assembling The Flat Panel](#assembling-the-flat-panel)
+* [Ideas For Future Enhancements](#ideas-for-future-enhancements)
+
 ## Introduction
 
 Up until now, I have been using an OSC (One Shot Color) camera (ZWO ASI533MC Pro) to capture images of the night sky with my telescope, along with two filters, a Luminance (L) filter (I use an Astronomik L3 because my budget APO has some residual chromatism in the blue part of the spectrum) and a dual narrowband filter (Optolong L-eXtreme). This makes taking flats relatively easy. I just use an LED tracing panel, which I bought for $20 on Amazon, and I dim the panel using a few sheets of paper in order to accommodate the stark difference in transmission between the two filters (the transmission ratio between these two filters, for a light source that has a relatively broad spectrum, is roughly 1 to 20!)
