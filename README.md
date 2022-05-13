@@ -22,6 +22,8 @@ The solution is relatively straightforward, however. An ASCOM-compatible flat pa
 
 What I want is a [high quality](https://github.com/jlecomte/circular-led-flat-panel-evaluation), affordable (BOM cost ~ $50), yet professional looking ASCOM-compatible flat panel that would be the perfect size for my telescope. The only way to get that was to design it and built it myself, and that is what I did. In this repository, I share everything you need to build your own.
 
+[![YouTube video talking about this flat panel](images/YouTube-thumbnail.png)](https://www.youtube.com/watch?v=6Nm4YFr4F-w)
+
 ## Finished Product
 
 Here is what the finished product looks like:
