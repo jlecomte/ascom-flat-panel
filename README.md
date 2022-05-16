@@ -94,9 +94,11 @@ The STL files you will find in the `3D_Files/STL/` folder are just a starting po
 
 ## Electronic Circuit
 
-The electronics circuit is trivial. I included a Fritzing file in the `Electronics/` folder. Here are the schematics:
+The electronics circuit is pretty trivial. I included a Fritzing file in the `Electronics/` folder. Here are the schematics:
 
 ![Circuit Board Box](images/electronics.png)
+
+**IMPORTANT:** When I first tested my circuit, I noticed that the LED strip was flickering. This could not be due to PWM because the microcontroller I am using emits a signal at 490Hz. For a long time, I thought that there was a bad connection somewhere, but it turned out to be something completely different. The LED strip that I had purchased was rated for 12V. I was under the assumption that I could feed it a slightly higher voltage without any issues (most devices that take in 12V usually work well wihin a range around that median value) but it turned out that the strip's operating range was between 7V and 12V! Since my portable field battery has a voltage of between 12.8V and 13.4V, I had to use a buck converter (in the form of a MINI360) to bring the voltage down to 10V. After that small modification, the flickering is gone and the panel works very well!
 
 Here is what the finished electronic circuit looks like:
 
