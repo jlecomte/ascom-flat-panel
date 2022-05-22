@@ -1,6 +1,6 @@
 /*
  * CoverCalibratorDriver.cs
- * Copyright � 2022 - Present, Julien Lecomte - All Rights Reserved
+ * Copyright (C) 2022 - Present, Julien Lecomte - All Rights Reserved
  * Licensed under the MIT License. See the accompanying LICENSE file for terms.
  */
 
