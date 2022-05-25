@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ASCOM.DarkSkyGeek</RootNamespace>
-    <AssemblyName>ASCOM.DarkSkyGeek.CoverCalibrator</AssemblyName>
+    <AssemblyName>ASCOM.DarkSkyGeek.FlatPanel</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>

@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("ASCOM.DarkSkyGeek.CoverCalibrator")]
+[assembly: AssemblyTitle("ASCOM.DarkSkyGeek.FlatPanel")]
 [assembly: AssemblyDescription("DarkSkyGeek’s Flat Panel")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
