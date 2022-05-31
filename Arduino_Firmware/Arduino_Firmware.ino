@@ -19,6 +19,10 @@ constexpr auto RESULT_CALIBRATOR_BRIGHTNESS = "RESULT:CALIBRATOR:BRIGHTNESS:";
 
 constexpr auto ERROR_INVALID_COMMAND = "ERROR:INVALID_COMMAND";
 
+#define MIN_BRIGHTNESS 0
+#define MAX_BRIGHTNESS 255
+#define PWM_FREQ 20000
+
 byte brightness = 0;
 
 int ledPin = 8;
@@ -70,14 +74,27 @@ void sendCalibratorBrightness() {
     Serial.println(brightness);
 }
 
+void setBrightness() {
+    // This only works on Seeeduino Xiao.
+    // The `pwm` function is defined in the following file:
+    // %localappdata%\Arduino15\packages\Seeeduino\hardware\samd\1.8.2\cores\arduino\wiring_pwm.cpp
+    // For other Arduino-compatible boards, consider using:
+    //   analogWrite(ledPin, brightness);
+    // The nice thing about the `pwm` function is that we can set the frequency
+    // to a much higher value (I use 20kHz) This does not work on all pins!
+    // For example, it does not work on pin 7 of the Xiao, but it works on pin 8.
+    int value = map(brightness, MIN_BRIGHTNESS, MAX_BRIGHTNESS, 0, 1023);
+    pwm(ledPin, PWM_FREQ, value);
+}
+
 void calibratorOn(byte _brightness) {
     brightness = _brightness;
-    analogWrite(ledPin, brightness);
+    setBrightness();
 }
 
 void calibratorOff() {
     brightness = 0;
-    analogWrite(ledPin, brightness);
+    setBrightness();
 }
 
 //-- MISCELLANEOUS ------------------------------------------------------------

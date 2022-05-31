@@ -166,11 +166,6 @@ namespace ASCOM.DarkSkyGeek
 
         public void Dispose()
         {
-            if (IsConnected)
-            {
-                CalibratorOff();
-                Connected = false;
-            }
             // Clean up the trace logger object
             tl.Enabled = false;
             tl.Dispose();
@@ -261,6 +256,8 @@ namespace ASCOM.DarkSkyGeek
                 }
                 else
                 {
+                    CalibratorOff();
+
                     connectedState = false;
 
                     LogMessage("Connected Set", "Disconnecting from port {0}", comPort);
