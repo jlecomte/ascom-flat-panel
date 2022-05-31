@@ -1,16 +1,23 @@
 # ASCOM-Compatible Flat Panel
 
-* [Introduction](#introduction)
-* [Finished Product](#finished-product)
-* [Pre-Requisites](#pre-requisites)
-* [Hardware](#hardware)
-* [Compiling The ASCOM Driver](#compiling-the-ascom-driver)
-* [Installing The ASCOM Driver](#installing-the-ascom-driver)
-* [Compiling The Arduino Firmware](#compiling-the-arduino-firmware)
-* [Mechanical Components](#mechanical-components)
-* [Electronic Circuit](#electronic-circuit)
-* [Assembling The Flat Panel](#assembling-the-flat-panel)
-* [Ideas For Future Enhancements](#ideas-for-future-enhancements)
+<!-- toc -->
+
+- [Introduction](#introduction)
+- [Finished Product](#finished-product)
+- [Pre-Requisites](#pre-requisites)
+- [Hardware](#hardware)
+- [ASCOM Driver](#ascom-driver)
+  - [Compiling The Driver](#compiling-the-driver)
+  - [Installing The Driver](#installing-the-driver)
+- [Arduino Firmware](#arduino-firmware)
+  - [Microcontroller Compatibility](#microcontroller-compatibility)
+  - [Compiling And Uploading The Firmware](#compiling-and-uploading-the-firmware)
+- [Mechanical Components](#mechanical-components)
+- [Electronic Circuit](#electronic-circuit)
+- [Assembling The Flat Panel](#assembling-the-flat-panel)
+- [Ideas For Future Enhancements](#ideas-for-future-enhancements)
+
+<!-- tocstop -->
 
 ## Introduction
 
@@ -38,38 +45,42 @@ Here is what the finished product looks like:
 
 ## Pre-Requisites
 
-* A Windows computer (I know what you're thinking... The good news is that with [ASCOM Alpaca](https://www.ascom-standards.org/Developer/Alpaca.htm), we will soon have a truly multi-platform solution... Until then, we're just using the Windows-specific ASCOM implementation)
+* A Windows computer (Windows 10 or newer)
 * [Microsoft Visual Studio](https://visualstudio.microsoft.com/) (FYI, I used the 2022 edition...)
 * [ASCOM Platform](https://ascom-standards.org/)
 * [ASCOM Platform Developer Components](https://ascom-standards.org/COMDeveloper/Index.htm)
 * [Arduino IDE](https://www.arduino.cc/en/software)
 * [FreeCAD](https://www.freecadweb.org/), a free and open-source 3D parametric modeler
 * A 3D printer able to print PETG, and a slicer (I use a heavily upgraded Creality Ender 3 v2, and Ultimaker Cura)
-* A few basic tools that any tinkerer must own...
+* A few basic tools that any tinkerer must own, such as a breadboard, a soldering iron, etc.
 
 ## Hardware
 
-The following are just suggestions... Also, over time, some of the Amazon links may no longer work... But it should help get you started.
+The following are just suggestions... Also, over time, some of the links may no longer work...
 
 * [Seeeduino XIAO](https://www.seeedstudio.com/Seeeduino-XIAO-Arduino-Microcontroller-SAMD21-Cortex-M0+-p-4426.html) (You can get it quicker from Amazon, but you will have to pay twice as much!)
-* [IRF520N MOSFET](https://www.amazon.com/dp/B082J3FNJS)
+* IRF520N MOSFET
 * 1KΩ resistor
 * [Perforated Circuit Board](https://www.amazon.com/dp/B07NM68FXK)
 * [DC Power Jack](https://www.amazon.com/dp/B01N8VV78D)
 * [Bench Power Supply](https://www.amazon.com/dp/B07GCJ5QHF)
 * [Taloya LED Flush Mount Ceiling Light](https://www.amazon.com/dp/B08GX81JB1) (to extract the background disk and the LGP)
-* [High Density white LED strip](https://www.amazon.com/dp/B07X53HXY1)
+* [Natural white LED strip](https://www.amazon.com/dp/B08H4YST71)
 * [White Acrylic Sheet](https://www.amazon.com/dp/B083XQ2QS7) (to make the diffuser)
 * [Threaded inserts for 3D printed parts](https://www.amazon.com/dp/B07VFZWWXY)
 * [Assortment of small metric screws, nuts, and washers](https://www.amazon.com/dp/B08JCKH31Q)
 * [22AWG solid core electrical wires](https://www.amazon.com/dp/B088KQFHV7)
 * [Easy-to-print PETG filament](https://www.amazon.com/dp/B07PGYHYV8)
 
-## Compiling The ASCOM Driver
+Important note about the LED strip: Pick a "natural white" LED strip. Stay away from "warm white" because you will run into some problems with your OIII filter (it does not emit enough in the blue part of the spectrum) or "cool white" because you will have similar issues, but with the H⍺ or SII filters (it does not emit enough in the red part of the spectrum). Also, stay away from so-called "high density" LED strips, they are simply too bright for our application. Finally, depending on the exact LED strip you picked and how much voltage you apply, you may need to insert additional diffusers. It will be a process of trial and error in order to get the perfect setup. But once you're done, and the Flat Wizard in N.I.N.A. (for example) has been configured for all your filters, taking flats will become a simple "fire and forget" operation.
+
+## ASCOM Driver
+
+### Compiling The Driver
 
 Open Microsoft Visual Studio as an administrator (right click on the Microsoft Visual Studio shortcut, and select "Run as administrator"). This is required because when building the code, by default, Microsoft Visual Studio will register the compiled COM components, and this operation requires special privileges (Note: This is something you can disable in the project settings...) Then, open the solution (`ASCOM_Driver\ASCOM.DarkSkyGeek.FlatPanel.sln`), change the solution configuration to `Release` (in the toolbar), open the `Build` menu, and click on `Build Solution`. As long as you have properly installed all the required dependencies, the build should succeed and the ASCOM driver will be registered on your system. The binary file generated will be `ASCOM_Driver\bin\Release\ASCOM.DarkSkyGeek.FlatPanel.dll`. You may also download this file from the [Releases page](https://github.com/jlecomte/ascom-flat-panel/releases).
 
-## Installing The ASCOM Driver
+### Installing The Driver
 
 If you are planning to use the ASCOM driver on a separate computer, you can install it manually, using `RegAsm.exe`. Just don't forget to use the 64 bit version, and to pass the `/tlb /codebase` flags. I know, it's Windows... Anyway, here is what it looked like on my imaging mini computer:
 
@@ -82,7 +93,13 @@ Copyright (C) Microsoft Corporation.  All rights reserved.
 Types registered successfully
 ```
 
-## Compiling The Arduino Firmware
+## Arduino Firmware
+
+### Microcontroller Compatibility
+
+Pretty much all Arduino-compatible boards should work. There is nothing magical about the firmware.
+
+### Compiling And Uploading The Firmware
 
 * Add support for Seeeduino boards by following [the instructions from the board manufacturer](https://wiki.seeedstudio.com/Seeeduino-XIAO/).
 * To customize the name of the device when connected to your computer, open the file `boards.txt`, which, on my system and for the version of the Seeeduino board I am using, is located at `%LOCALAPPDATA%\Arduino15\packages\Seeeduino\hardware\samd\1.8.2\boards.txt`. Then, change the value of the key `seeed_XIAO_m0.build.usb_product` from `Seeed XIAO M0` (default) to whatever you'd like. I set it to `DarkSkyGeekʼs ASCOM Flat Panel`.
