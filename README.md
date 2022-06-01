@@ -97,7 +97,7 @@ Types registered successfully
 
 ### Microcontroller Compatibility
 
-Pretty much all Arduino-compatible boards should work. There is nothing magical about the firmware.
+Pretty much all Arduino-compatible boards should work. However, if you look at the firmware code, you will notice that I don't use `analogWrite()`. Indeed, the frequency of the PWM wave generated when using `analogWrite()` is too low (It depends on the microcontroller. On an Uno, it is 490 Hz, but on a Seeeduino Xiao, it is 790 Hz) and any flat taken with an exposure < 2 seconds showed obvious artifacts (horizontal lines). So I ended up using the SAMD-specific function `pwm()` to set both the frequency and duty cycle. The frequency I use is 20 kHz, and with that, even flats taken with exposures as low as 0.1 seconds are perfectly usable. The only problem is that pretty much every microcontroller has its own way of setting the PWM frequency, and not all pins will behave the same way, so again, experiment with your own equipment! (or just copy what I did...)
 
 ### Compiling And Uploading The Firmware
 
