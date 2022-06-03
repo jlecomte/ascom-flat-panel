@@ -136,3 +136,4 @@ The most difficult part of this project is to cleanly and solidly solder wire le
 ## Ideas For Future Enhancements
 
 * This flat panel could potentially be integrated in the [ASCOM Telescope Cover](https://github.com/jlecomte/ascom-telescope-cover). I decided not to do that because, in my case, it would have added too much weight to the front of my already front-heavy OTA, making it more difficult to balance, and causing all kinds of issues with the camera possibly hitting the tripod legs since the OTA would have to be moved back to provide proper balance.
+* It would be nice to power the LED strip from the USB cable, instead of requiring a separate power supply (or maybe use a 9V battery?) Some Arduino-compatible boards boast the ability to deliver as much as 500mA @ 5V, which should be enough to power the LED strip...
