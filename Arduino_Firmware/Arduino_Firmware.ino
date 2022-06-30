@@ -36,6 +36,15 @@ void setup() {
     }
     Serial.flush();
 
+    // Make sure the RX, TX, and built-in LEDs don't turn on, they are very bright!
+    // Even though the board is inside an enclosure, the light can be seen shining
+    // through the small opening for the USB connector! Unfortunately, it is not
+    // possible to turn off the power LED (green) in code...
+    pinMode(PIN_LED_TXL, INPUT);
+    pinMode(PIN_LED_RXL, INPUT);
+    pinMode(LED_BUILTIN, OUTPUT);
+    digitalWrite(LED_BUILTIN, HIGH);
+
     // Setup LED pin as output
     pinMode(ledPin, OUTPUT);
 }
