@@ -9,7 +9,6 @@
 - [ASCOM Driver](#ascom-driver)
   - [Downloading And Installing The Driver](#downloading-and-installing-the-driver)
   - [Compiling The Driver (For Developers Only)](#compiling-the-driver-for-developers-only)
-  - [Installing The Driver](#installing-the-driver)
 - [Arduino Firmware](#arduino-firmware)
   - [Microcontroller Compatibility](#microcontroller-compatibility)
   - [Compiling And Uploading The Firmware](#compiling-and-uploading-the-firmware)
@@ -104,19 +103,6 @@ Types registered successfully
 ### Compiling The Driver (For Developers Only)
 
 Open Microsoft Visual Studio as an administrator (right click on the Microsoft Visual Studio shortcut, and select "Run as administrator"). This is required because when building the code, by default, Microsoft Visual Studio will register the compiled COM components, and this operation requires special privileges (Note: This is something you can disable in the project settings...) Then, open the solution (`ASCOM_Driver\ASCOM.DarkSkyGeek.FlatPanel.sln`), change the solution configuration to `Release` (in the toolbar), open the `Build` menu, and click on `Build Solution`. As long as you have properly installed all the required dependencies, the build should succeed and the ASCOM driver will be registered on your system. The binary file generated will be `ASCOM_Driver\bin\Release\ASCOM.DarkSkyGeek.FlatPanel.dll`. You may also download this file from the [Releases page](https://github.com/jlecomte/ascom-flat-panel/releases).
-
-### Installing The Driver
-
-If you are planning to use the ASCOM driver on a separate computer, you can install it manually, using `RegAsm.exe`. Just don't forget to use the 64 bit version, and to pass the `/tlb /codebase` flags. I know, it's Windows... Anyway, here is what it looked like on my imaging mini computer:
-
-```
-> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\RegAsm.exe /tlb /codebase ASCOM.DarkSkyGeek.FlatPanel.dll
-Microsoft .NET Framework Assembly Registration Utility version 4.8.4161.0
-for Microsoft .NET Framework version 4.8.4161.0
-Copyright (C) Microsoft Corporation.  All rights reserved.
-
-Types registered successfully
-```
 
 ## Arduino Firmware
 
