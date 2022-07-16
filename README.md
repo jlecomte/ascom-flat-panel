@@ -27,7 +27,9 @@ Recently, in order to get better results, both in terms of SNR and resolution, a
 
 The solution is relatively straightforward, however. An ASCOM-compatible flat panel is capable of modulating its brightness, and software like N.I.N.A., for example, can control it to adjust its brightness for each filter, while respecting the criteria you set (minimum/maximum exposure time, histogram mean, etc.) The only problem is that commercial flat panels can be quite expensive (depending on their diameter), and unless you are lucky, the flat panel you purchase will likely be bigger than you really need. For instance, for my AT130EDT refractor, the Gerd Neumann flat panel closest in size would be able to fit a 220mm diameter telescope, which is a lot bigger than I need!
 
-What I want is a [high quality](https://github.com/jlecomte/circular-led-flat-panel-evaluation), affordable (BOM cost ~ $50), yet professional looking ASCOM-compatible flat panel that would be the perfect size for my telescope. The only way to get that was to design it and built it myself, and that is what I did. In this repository, I share everything you need to build your own.
+What I want is a high quality, affordable (BOM cost ~ $50), yet professional looking ASCOM-compatible flat panel that would be the perfect size for my telescope. The only way to get that was to design it and built it myself, and that is what I did. In this repository, I share everything you need to build your own.
+
+Make sure you check out [this page](https://github.com/jlecomte/circular-led-flat-panel-evaluation) to understand why a Light Guiding Plate (LGP) is absolutely critical for the realization of a high quality flat panel!
 
 [![YouTube video talking about this flat panel](images/YouTube-thumbnail.png)](https://www.youtube.com/watch?v=6Nm4YFr4F-w)
 
@@ -65,7 +67,7 @@ The following are just suggestions... Also, over time, some of the links may no 
 * [Perforated Circuit Board](https://www.amazon.com/dp/B07NM68FXK)
 * [DC Power Jack](https://www.amazon.com/dp/B01N8VV78D)
 * [Bench Power Supply](https://www.amazon.com/dp/B07GCJ5QHF)
-* [Taloya LED Flush Mount Ceiling Light](https://www.amazon.com/dp/B08GX81JB1) (to extract the background disk and the LGP)
+* [Taloya LED Flush Mount Ceiling Light](https://www.amazon.com/dp/B08GX81JB1) (to extract the background disk and the Light Guiding Plate, aka LGP)
 * [White Acrylic Sheet](https://www.amazon.com/dp/B083XQ2QS7) (to make the diffuser)
 * [Threaded inserts for 3D printed parts](https://www.amazon.com/dp/B07VFZWWXY)
 * [Assortment of small metric screws, nuts, and washers](https://www.amazon.com/dp/B08JCKH31Q)
@@ -136,7 +138,7 @@ In the photograph above, the components were soldered onto a 70mm x 30mm PCB.
 
 ## Assembling The Flat Panel
 
-The most difficult part of this project is to cleanly and solidly solder wire leads to the appropriate length of LED strip. Once I have a good solder joint, I usually put a nice glob of epoxy resin on and around it to provide some mechanical reinforcement. Then, the LED strip is stuck against the inside of the panel body. The LGP, cut to size, is inserted and should barely fit within the LED strip, pushing the LEDs against the wall of the panel body. Finally, the spacer is placed on top of the LGP, the diffusing sheet sits on top of the spacer, and the front part of the panel is bolted to the back. Here are a few photos to illustrate this process:
+The most difficult part of this project is to cleanly and solidly solder wire leads to the appropriate length of LED strip. Once I have a good solder joint, I usually put a nice glob of epoxy resin on and around it to provide some mechanical reinforcement. Then, the LED strip is stuck against the inside of the panel body. The Light Guiding Plate (LGP), cut to size, is inserted and should barely fit within the LED strip, pushing the LEDs against the wall of the panel body. Finally, the spacer is placed on top of the LGP, the diffusing sheet sits on top of the spacer, and the front part of the panel is bolted to the back. Here are a few photos to illustrate this process:
 
 ![Assembly Process Step 1](images/lgp.png)
 
