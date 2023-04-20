@@ -62,6 +62,7 @@ The following are just suggestions... Also, over time, some of the links may no 
 
 * [Seeeduino XIAO](https://www.seeedstudio.com/Seeeduino-XIAO-Arduino-Microcontroller-SAMD21-Cortex-M0+-p-4426.html) (You can get it quicker from Amazon, but you will have to pay twice as much!) See note on microcontroller compatibility below.
 * [Natural white LED strip](https://www.amazon.com/dp/B08H4YST71)
+* [Mini360 Buck Converter](https://www.amazon.com/dp/B07T7L51ZW)
 * IRF520N MOSFET
 * 1KΩ resistor
 * [Perforated Circuit Board](https://www.amazon.com/dp/B07NM68FXK)
