@@ -582,7 +582,7 @@ namespace ASCOM.DarkSkyGeek
             {
                 driverProfile.DeviceType = "CoverCalibrator";
                 driverProfile.WriteValue(driverID, traceStateProfileName, tl.Enabled.ToString());
-                driverProfile.WriteValue(driverID, autoDetectComPortProfileName, autoDetectComPortDefault.ToString());
+                driverProfile.WriteValue(driverID, autoDetectComPortProfileName, autoDetectComPort.ToString());
                 if (comPortOverride != null)
                 {
                     driverProfile.WriteValue(driverID, comPortProfileName, comPortOverride.ToString());
