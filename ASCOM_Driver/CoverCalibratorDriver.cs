@@ -86,6 +86,9 @@ namespace ASCOM.DarkSkyGeek
         private const string COMMAND_CALIBRATOR_OFF = "COMMAND:CALIBRATOR:OFF";
         private const string RESULT_CALIBRATOR_BRIGHTNESS = "RESULT:CALIBRATOR:BRIGHTNESS:";
 
+        private const string COMMAND_CALIBRATOR_GETSTATE = "COMMAND:CALIBRATOR:GETSTATE";
+        private const string RESULT_CALIBRATOR_STATE = "RESULT:CALIBRATOR:STATE:";
+
         private const int MAX_BRIGHTNESS = 255;
 
         /// <summary>
@@ -367,7 +370,46 @@ namespace ASCOM.DarkSkyGeek
         {
             get
             {
-                return CalibratorStatus.Ready;
+                CheckConnected("CalibratorState");
+                tl.LogMessage("CalibratorState", "Sending request to device to read calibrator state");
+                objSerial.Transmit(COMMAND_CALIBRATOR_GETSTATE + SEPARATOR);
+                tl.LogMessage("CalibratorState", "Sent request to device to read calibrator state");
+                string response;
+                try
+                {
+                    response = objSerial.ReceiveTerminated(SEPARATOR).Trim();
+                }
+                catch (Exception e)
+                {
+                    tl.LogMessage("CalibratorState", "Exception: " + e.Message);
+                    throw e;
+                }
+                tl.LogMessage("CalibratorState", "Received response from device");
+                if (!response.StartsWith(RESULT_CALIBRATOR_STATE))
+                {
+                    tl.LogMessage("CalibratorState", "Invalid response from device: " + response);
+                    throw new ASCOM.DriverException("Invalid response from device: " + response);
+                }
+                string arg = response.Substring(RESULT_CALIBRATOR_STATE.Length);
+                int value;
+                try
+                {
+                    value = Int32.Parse(arg);
+                }
+                catch (FormatException)
+                {
+                    tl.LogMessage("CalibratorState", "Invalid state value received from device: " + arg);
+                    throw new ASCOM.DriverException("Invalid state value received from device: " + arg);
+                }
+                if (value < 0 || value > 5)
+                {
+                    tl.LogMessage("CalibratorState", "Invalid state value received from device: " + arg);
+                    throw new ASCOM.DriverException("Invalid state value received from device: " + arg);
+                }
+                else
+                {
+                    return (CalibratorStatus)value;
+                }
             }
         }
 

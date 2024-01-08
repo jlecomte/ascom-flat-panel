@@ -15,6 +15,8 @@ constexpr auto RESULT_INFO = "RESULT:INFO:DarkSkyGeek's Flat Panel Firmware v1.0
 constexpr auto COMMAND_CALIBRATOR_GETBRIGHTNESS = "COMMAND:CALIBRATOR:GETBRIGHTNESS";
 constexpr auto COMMAND_CALIBRATOR_ON = "COMMAND:CALIBRATOR:ON:";
 constexpr auto COMMAND_CALIBRATOR_OFF = "COMMAND:CALIBRATOR:OFF";
+constexpr auto COMMAND_CALIBRATOR_GETSTATE = "COMMAND:CALIBRATOR:GETSTATE";
+constexpr auto RESULT_CALIBRATOR_STATE = "RESULT:CALIBRATOR:STATE:";
 constexpr auto RESULT_CALIBRATOR_BRIGHTNESS = "RESULT:CALIBRATOR:BRIGHTNESS:";
 
 constexpr auto ERROR_INVALID_COMMAND = "ERROR:INVALID_COMMAND";
@@ -24,6 +26,7 @@ constexpr auto ERROR_INVALID_COMMAND = "ERROR:INVALID_COMMAND";
 #define PWM_FREQ 20000
 
 byte brightness = 0;
+byte state = 1;
 
 int ledPin = 8;
 
@@ -70,6 +73,9 @@ void loop() {
         else if (command == COMMAND_CALIBRATOR_OFF) {
             calibratorOff();
         }
+        else if (command == COMMAND_CALIBRATOR_GETSTATE) {
+            getState();
+        }
         else {
             handleInvalidCommand();
         }
@@ -99,11 +105,13 @@ void setBrightness() {
 void calibratorOn(byte _brightness) {
     brightness = _brightness;
     setBrightness();
+    state = 3;
 }
 
 void calibratorOff() {
     brightness = 0;
     setBrightness();
+    state = 1;
 }
 
 //-- MISCELLANEOUS ------------------------------------------------------------
@@ -119,4 +127,9 @@ void sendFirmwareInfo() {
 
 void handleInvalidCommand() {
     Serial.println(ERROR_INVALID_COMMAND);
+}
+
+void getState() {
+    Serial.print(RESULT_CALIBRATOR_STATE);
+    Serial.println(state);
 }
