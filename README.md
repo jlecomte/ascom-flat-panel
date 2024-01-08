@@ -1,5 +1,7 @@
 # ASCOM-Compatible Flat Panel
 
+**NOTE:** This project is no longer actively maintained. It has been superseded by [my **wireless** ASCOM-compatible flat panel](https://github.com/jlecomte/ascom-wireless-flat-panel).
+
 I do not charge anything to create and maintain these open-source projects. But if you would like to say "thanks" for this project, feel free to send any amount through Paypal using the button below. I appreciate your support!
 
 [![](images/donate.png)](https://www.paypal.com/donate/?hosted_button_id=49UXY8F6VVYFA)
