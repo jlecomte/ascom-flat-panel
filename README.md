@@ -67,19 +67,19 @@ Here is what the finished product looks like:
 The following are just suggestions... Also, over time, some of the links may no longer work...
 
 * [Seeeduino XIAO](https://www.seeedstudio.com/Seeeduino-XIAO-Arduino-Microcontroller-SAMD21-Cortex-M0+-p-4426.html) (You can get it quicker from Amazon, but you will have to pay twice as much!) See note on microcontroller compatibility below.
-* [Natural white LED strip](https://www.amazon.com/dp/B08H4YST71)
-* [Mini360 Buck Converter](https://www.amazon.com/dp/B07T7L51ZW)
+* [Natural white LED strip](https://www.amazon.com/dp/B08H4YST71?tag=darkskygeek-20)
+* [Mini360 Buck Converter](https://www.amazon.com/dp/B07T7L51ZW?tag=darkskygeek-20)
 * IRF520N MOSFET
 * 1KΩ resistor
-* [Perforated Circuit Board](https://www.amazon.com/dp/B07NM68FXK)
-* [DC Power Jack](https://www.amazon.com/dp/B01N8VV78D)
-* [Bench Power Supply](https://www.amazon.com/dp/B07GCJ5QHF)
-* [Taloya LED Flush Mount Ceiling Light](https://www.amazon.com/dp/B08GX81JB1) (to extract the background disk and the Light Guiding Plate, aka LGP)
-* [White Acrylic Sheet](https://www.amazon.com/dp/B083XQ2QS7) (to make the diffuser)
-* [Threaded inserts for 3D printed parts](https://www.amazon.com/dp/B07VFZWWXY)
-* [Assortment of small metric screws, nuts, and washers](https://www.amazon.com/dp/B08JCKH31Q)
-* [22AWG solid core electrical wires](https://www.amazon.com/dp/B088KQFHV7)
-* [Easy-to-print PETG filament](https://www.amazon.com/dp/B07PGYHYV8)
+* [Perforated Circuit Board](https://www.amazon.com/dp/B07NM68FXK?tag=darkskygeek-20)
+* [DC Power Jack](https://www.amazon.com/dp/B01N8VV78D?tag=darkskygeek-20)
+* [Bench Power Supply](https://www.amazon.com/dp/B07GCJ5QHF?tag=darkskygeek-20)
+* [Taloya LED Flush Mount Ceiling Light](https://www.amazon.com/dp/B08GX81JB1?tag=darkskygeek-20) (to extract the background disk and the Light Guiding Plate, aka LGP)
+* [White Acrylic Sheet](https://www.amazon.com/dp/B083XQ2QS7?tag=darkskygeek-20) (to make the diffuser)
+* [Threaded inserts for 3D printed parts](https://www.amazon.com/dp/B07VFZWWXY?tag=darkskygeek-20)
+* [Assortment of small metric screws, nuts, and washers](https://www.amazon.com/dp/B08JCKH31Q?tag=darkskygeek-20)
+* [22AWG solid core electrical wires](https://www.amazon.com/dp/B088KQFHV7?tag=darkskygeek-20)
+* [Easy-to-print PETG filament](https://www.amazon.com/dp/B07PGYHYV8?tag=darkskygeek-20)
 
 **Important note about the LED strip:** Pick a "natural white" LED strip. Stay away from "warm white" because you will run into some problems with your OIII filter (it does not emit enough in the blue part of the spectrum) or "cool white" because you will have similar issues, but with the H⍺ or SII filters (it does not emit enough in the red part of the spectrum). Also, stay away from so-called "high density" LED strips, they are simply too bright for our application. Finally, depending on the exact LED strip you picked and how much voltage you apply (you can set that using the potentiometer on the MINI360 module), you may need to insert additional diffusers. It will be a process of trial and error in order to get the perfect setup. But once you're done, and the Flat Wizard in N.I.N.A. (for example) has been configured for all your filters, taking flats will become a simple "fire and forget" operation.
 
